@@ -1,0 +1,26 @@
+/* 公共样式代码 */
+body{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+}
+.parent{
+   width:30vw;
+   height: 30vh;
+}
+
+.child{
+   color: #FFFEF6;
+}
+
+.child.size{
+   width: 10vw;
+   height: 10vh;
+}

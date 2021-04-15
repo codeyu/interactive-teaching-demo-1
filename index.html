@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VLAN排序</title>
+  <link href="css/common.css" rel="stylesheet" type="text/css" />
+  <link href="css/index.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+  </script>
+  <script src="js/md5.js"></script>
+  <script src="js/index.js"></script>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child">
+      <div class="container-fluid">
+        <div class="row">
+          下面的步骤是打乱的。请把下边的内容拖到正确的步骤上去。
+        </div>
+        <div class="step">
+          <div class="left">
+            <ul>
+              <li>
+                步骤一
+              </li>
+              <li>
+                步骤二
+              </li>
+              <li>
+                步骤三
+              </li>
+              <li>
+                步骤四
+              </li>
+            </ul>
+          </div>
+          <div class="right">
+            <ul id="an">
+              <li draggable="true">
+                在三层交换机上设置Trunk，并允许通过Vlan。
+              </li>
+              <li draggable="true">
+                在二层交换机上设置Trunk，并允许通过Vlan。
+              </li>
+              <li draggable="true">
+                在三层交换机上配置Vlan接口。
+              </li>
+              <li draggable="true">
+                在相应的Vlan接口配置IP地址和子网掩码。
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" style="text-align: center;">
+          <button id="btnSubmit" onclick="runChecks()">提交</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="as-console-wrapper">
+    <div class="as-console"></div>
+  </div>
+  <script src="js/action.js"></script>
+</body>
+
+</html>
