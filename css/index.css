@@ -130,6 +130,9 @@ li {
   animation: flash 1s;
 }
 
+.step {
+  font-size: large;
+}
 .left {
   float: left;
   width: 80px;
