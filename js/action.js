@@ -5,10 +5,31 @@ function runChecks() {
       str += elem.innerText
     });
     let b = md5(str) == r
+    var $textAndPic = $('<div style="text-align: center;"></div>');
     if (b) {
-      window.alert('恭喜你，答对了:)')
+        $textAndPic.append('<img src="../img/good.png" />');
+        BootstrapDialog.show({
+            title: '恭喜你，答对了:)',
+            message: $textAndPic,
+            buttons: [{
+                label: 'OK',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            }]
+        });
     }
     else {
-      window.alert('很遗憾，步骤错误，请重试:(')
+      $textAndPic.append('<img src="../img/goon.png" />');
+        BootstrapDialog.show({
+            title: '很遗憾，步骤错误，请重试:(',
+            message: $textAndPic,
+            buttons: [{
+                label: '重试',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            }]
+        });
     }
   }
