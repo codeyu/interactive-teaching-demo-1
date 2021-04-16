@@ -8,15 +8,16 @@
   <title>VLAN排序</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="css/bootstrap-dialog.min.css">
   <!-- Optional theme -->
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-
+  <script src="js/jquery-3.4.1.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-dialog.min.js"></script>
   <link href="css/common.css" rel="stylesheet" type="text/css" />
   <link href="css/index.css" rel="stylesheet" type="text/css" />
-  <script src="js/jquery-3.4.1.min.js">
+  
   </script>
   <script src="js/md5.js"></script>
   <script src="js/index.js"></script>
@@ -48,16 +49,47 @@
           </div>
           <div class="right">
             <ul id="an">
-              <li draggable="true">
+              <li draggable="true"  data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="<code>
+                [Huawei-Vlanif20]int g0/0/1
+                [Huawei-GigabitEthernet0/0/1]port
+                link-type trunk
+                [Huawei-GigabitEthernet0/0/1]port
+                trunk allow-pass vlan 10 20
+              </code>"
+              >
                 在三层交换机上设置Trunk，并允许通过Vlan。
               </li>
-              <li draggable="true">
+              <li draggable="true"  data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="<code>
+                [Huawei-Ethernet0/0/2]int e0/0/3
+                [Huawei-Ethernet0/0/3]port
+                link-type trunk
+                [Huawei-Ethernet0/0/3]port trunk
+                allow-pass vlan 10 20
+              </code>"
+              >
                 在二层交换机上设置Trunk，并允许通过Vlan。
               </li>
-              <li draggable="true">
+              <li draggable="true"  data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="<code>
+                  <Huawei>sys
+                  [Huawei]un in en
+                  [Huawei]vlan batch 10 20
+              </code>"
+              >
                 在三层交换机上配置Vlan接口。
               </li>
-              <li draggable="true">
+              <li draggable="true"  data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="<code>
+                [Huawei-Vlanif10] int vlan 10 
+                [Huawei-Vlanif10] ip address 192.168.10.1 24 
+                (
+                  [Huawei-Vlanif10] int vlan 20 
+                  [Huawei-Vlanif20] ip address 192.168.20.1 24 
+                )
+              </code>"
+              >
                 在相应的Vlan接口配置IP地址和子网掩码。
               </li>
             </ul>
