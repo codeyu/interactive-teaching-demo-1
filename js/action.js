@@ -7,7 +7,7 @@ function runChecks() {
     let b = md5(str) == r
     var $textAndPic = $('<div style="text-align: center;"></div>');
     if (b) {
-        $textAndPic.append('<img src="../img/good.png" />');
+        $textAndPic.append('<img src="./img/good.png" />');
         BootstrapDialog.show({
             title: '恭喜你，答对了:)',
             message: $textAndPic,
@@ -20,7 +20,7 @@ function runChecks() {
         });
     }
     else {
-      $textAndPic.append('<img src="../img/goon.png" />');
+      $textAndPic.append('<img src="./img/goon.png" />');
         BootstrapDialog.show({
             title: '很遗憾，步骤错误，请重试:(',
             message: $textAndPic,
