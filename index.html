@@ -9,18 +9,18 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-dialog.min.css">
-  <!-- Optional theme -->
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/bootstrap-dialog.min.js"></script>
   <link href="css/common.css" rel="stylesheet" type="text/css" />
   <link href="css/index.css" rel="stylesheet" type="text/css" />
-  
-  </script>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-dialog.min.js"></script>
   <script src="js/md5.js"></script>
   <script src="js/index.js"></script>
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="js/highlight.pack.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 
 <body>
@@ -49,47 +49,16 @@
           </div>
           <div class="right">
             <ul id="an">
-              <li draggable="true"  data-toggle="tooltip" data-placement="right" data-html="true" 
-              title="<code>
-                [Huawei-Vlanif20]int g0/0/1
-                [Huawei-GigabitEthernet0/0/1]port
-                link-type trunk
-                [Huawei-GigabitEthernet0/0/1]port
-                trunk allow-pass vlan 10 20
-              </code>"
-              >
+              <li id="li1" draggable="true">
                 在三层交换机上设置Trunk，并允许通过Vlan。
               </li>
-              <li draggable="true"  data-toggle="tooltip" data-placement="right" data-html="true" 
-              title="<code>
-                [Huawei-Ethernet0/0/2]int e0/0/3
-                [Huawei-Ethernet0/0/3]port
-                link-type trunk
-                [Huawei-Ethernet0/0/3]port trunk
-                allow-pass vlan 10 20
-              </code>"
-              >
+              <li id="li2" draggable="true">
                 在二层交换机上设置Trunk，并允许通过Vlan。
               </li>
-              <li draggable="true"  data-toggle="tooltip" data-placement="right" data-html="true" 
-              title="<code>
-                  <Huawei>sys
-                  [Huawei]un in en
-                  [Huawei]vlan batch 10 20
-              </code>"
-              >
+              <li id="li3" draggable="true">
                 在三层交换机上配置Vlan接口。
               </li>
-              <li draggable="true"  data-toggle="tooltip" data-placement="right" data-html="true" 
-              title="<code>
-                [Huawei-Vlanif10] int vlan 10 
-                [Huawei-Vlanif10] ip address 192.168.10.1 24 
-                (
-                  [Huawei-Vlanif10] int vlan 20 
-                  [Huawei-Vlanif20] ip address 192.168.20.1 24 
-                )
-              </code>"
-              >
+              <li id="li4" draggable="true">
                 在相应的Vlan接口配置IP地址和子网掩码。
               </li>
             </ul>
@@ -106,7 +75,68 @@
   <div class="as-console-wrapper">
     <div class="as-console"></div>
   </div>
+  <div id="template1" style="display: none;">
+    <pre><code class="powershell">
+[Huawei-Vlanif20]int g0/0/1
+[Huawei-GigabitEthernet0/0/1]port link-type trunk
+[Huawei-GigabitEthernet0/0/1]port trunk allow-pass vlan 10 20
+    </code></pre>
+  </div>
+  <div id="template2" style="display: none;">
+    <pre><code class="powershell">
+[Huawei-Ethernet0/0/2]int e0/0/3
+[Huawei-Ethernet0/0/3]port link-type trunk
+[Huawei-Ethernet0/0/3]port trunk allow-pass vlan 10 20
+    </code></pre>
+  </div>
+  <div id="template3" style="display: none;">
+    <pre><code class="powershell">
+[Huawei]sys
+[Huawei]un in en
+[Huawei]vlan batch 10 20
+    </code></pre>
+  </div>
+  <div id="template4" style="display: none;">
+    <pre><code class="powershell">
+[Huawei-Vlanif10]int vlan 10
+[Huawei-Vlanif10]ip address 192.168.10.1 24
+(
+  [Huawei-Vlanif10]int vlan 20
+  [Huawei-Vlanif20]ip address 192.168.20.1 24
+)
+    </code></pre>
+  </div>
+  <script src="js/popper.min.js"></script>
+  <script src="js/tippy-bundle.umd.min.js"></script>
   <script src="js/action.js"></script>
+  <script>
+    // With the above scripts loaded, you can call `tippy()` with a CSS
+    // selector and a `content` prop:
+    tippy('#li1', {
+      maxWidth: 500,
+      placement: 'right-end',
+      content: template1.innerHTML,
+      allowHTML: true,
+    });
+    tippy('#li2', {
+      maxWidth: 500,
+      placement: 'right-end',
+      content: template2.innerHTML,
+      allowHTML: true,
+    });
+    tippy('#li3', {
+      maxWidth: 500,
+      placement: 'right-end',
+      content: template3.innerHTML,
+      allowHTML: true,
+    });
+    tippy('#li4', {
+      maxWidth: 500,
+      placement: 'right-end',
+      content: template4.innerHTML,
+      allowHTML: true,
+    });
+  </script>
 </body>
 
 </html>
